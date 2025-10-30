@@ -1,0 +1,7 @@
+name: testing for the first time
+on: workflow_dispatch
+jobs:   
+    Task1:
+        runs-on: ubuntu-latest
+        steps:
+            - run: echo "building app"

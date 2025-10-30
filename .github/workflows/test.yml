@@ -4,4 +4,13 @@ jobs:
     Task1:
         runs-on: ubuntu-latest
         steps:
-            - run: echo "building app"
+            - name: get code
+              uses: actions/checkout@v3
+            - name: Instal nodejs
+              uses: actions/setup-node@v3
+              with:
+                node-version:   18
+            - name: install dependencies
+              run: npm ci
+            - name: Run tests
+              run:  npm test  

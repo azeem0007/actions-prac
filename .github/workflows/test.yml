@@ -1,9 +1,16 @@
 name: testing for the first time
-on: workflow_dispatch
+on: push
 jobs:   
     Task1:
         runs-on: ubuntu-latest
         steps:
-            - name: update packagaes
-              run: sudo apt upgrade
-              
+            - name: get code
+              uses: actions/checkout@v3 
+            - name: install node js
+              uses: actions/setup-node@v3
+              with:
+                node-version: '18'
+            - name: install dependencies
+              run: npm ci
+            - name: run test
+              run: npmtest
